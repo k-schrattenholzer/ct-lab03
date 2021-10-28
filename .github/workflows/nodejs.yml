@@ -1,9 +1,7 @@
 name: Jest Tests
 
 on: [push]
-
 jobs:
-
   build:
     runs-on: ubuntu-latest
     container: node:latest
@@ -13,7 +11,6 @@ jobs:
         env:
           POSTGRES_USER: alchemy
           POSTGRES_PASSWORD: alchemy
-
     steps:
     - uses: actions/checkout@v2
     - run: npm ci
