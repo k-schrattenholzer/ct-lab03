@@ -9,7 +9,12 @@ describe('SimpleDB', () => {
     return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
   });
 
-  it ('should create a file in the root directory', () => {
-    const db = new SimpleDB(rootDir);
+  it ('creates and saves an object', () => {
+    const DB = new SimpleDB(rootDir);
+    const object = 'silly lil string';
+
+    return DB
+      .save(object)
+      .then((object) => expect(object).toEqual(object));
   });
 });
