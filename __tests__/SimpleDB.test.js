@@ -1,4 +1,4 @@
-const { mkdir, rm, readdir } = require('fs/promises');
+const { mkdir, rm } = require('fs/promises');
 const SimpleDB = require('../lib/SimpleDB.js');
 
 describe('SimpleDB', () => {
@@ -30,18 +30,26 @@ describe('SimpleDB', () => {
   });
 
   it ('gets all saved objects', () => {
+    const newDB = new SimpleDB(rootDir);
 
-    const object = { 
-      message: 'silly lil string', 
-      from: 'who knows' 
+    const object1 = { 
+      boogers: 'you should eat them', 
+      ohSoManyBoogers: 'what a big truck!' 
     };
 
-    expect(object).toEqual(object);
+    const object2 = { 
+      boogers: 'my turtle can be opinionated', 
+      ohSoManyBoogers: 'he wanted very badly to survive' 
+    };
+
+    return newDB
+      .save(object1)
+      .then(() => newDB.save(object2))
+      .then(() => newDB.getAll())
+      .then(actual => expect(actual).toEqual(expect.arrayContaining([object1, object2])));
 
   });
 });
-
-//save and get test
 
 //null test
 
