@@ -9,8 +9,8 @@ describe('SimpleDB', () => {
     return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
   };
 
-  beforeEach(clearDir);
-//   afterEach(clearDir);
+  beforeEach(() => clearDir);
+  //   afterEach(clearDir);
 
   //save test
   it ('creates and save, and get an object in the root Dir', () => {
