@@ -5,11 +5,13 @@ describe('SimpleDB', () => {
 
   const rootDir = './__tests__/store';
 
-  const clearDir = () => {
-    return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
-  };
+  //   const clearDir = () => {
+  //     return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
+  //   };
 
-  beforeEach(() => clearDir);
+  beforeEach(() => {
+    return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
+  });
   //   afterEach(clearDir);
 
   //save test
