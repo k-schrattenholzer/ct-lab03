@@ -45,7 +45,7 @@ describe('SimpleDB', () => {
     return newDB
       .save(object1)
       .then(() => newDB.save(object2))
-      .then(() => newDB.getAll())
+      .then(() => newDB.getFileArr())
       .then(actual => expect(actual).toEqual(expect.arrayContaining([object1, object2])));
 
   });
