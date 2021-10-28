@@ -28,6 +28,17 @@ describe('SimpleDB', () => {
       .then(() => DB.get(object.id))
       .then(actual => expect(actual).toEqual(expected));
   });
+
+  it ('gets all saved objects', () => {
+
+    const object = { 
+      message: 'silly lil string', 
+      from: 'who knows' 
+    };
+
+    expect(object).toEqual(object);
+
+  });
 });
 
 //save and get test
