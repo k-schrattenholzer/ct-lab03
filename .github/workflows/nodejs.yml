@@ -1,10 +1,11 @@
 name: Jest Tests
 
 on: [push]
-jobs:
-  permissions:
+permissions:
     actions: write
     checks: write
+
+jobs:
 
   build:
     runs-on: ubuntu-latest
