@@ -1,9 +1,6 @@
 name: Jest Tests
 
 on: [push]
-permissions:
-    actions: write
-    checks: write
 
 jobs:
 

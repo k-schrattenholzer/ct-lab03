@@ -8,15 +8,15 @@ describe('SimpleDB', () => {
   //   const clearDir = () => {
   //     return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
   //   };
+  //   beforeEach(clearDir);
+  //   afterEach(clearDir);
 
   beforeEach(() => {
     return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
   });
-  //   beforeEach(clearDir);
-  //   afterEach(clearDir);
 
   //save test
-  it ('creates and save, and get an object in the root Dir', () => {
+  it ('creates, saves and gets an object in the root Dir', () => {
 
     const DB = new SimpleDB(rootDir);
 
@@ -34,6 +34,7 @@ describe('SimpleDB', () => {
       .then(() => DB.get(object.id))
       .then(actual => expect(actual).toEqual(expected));
   });
+
   //gets all test
   it ('gets all saved objects', () => {
     const newDB = new SimpleDB(rootDir);
@@ -55,11 +56,10 @@ describe('SimpleDB', () => {
       .then(actual => expect(actual).toEqual(expect.arrayContaining([object1, object2])));
 
   });
+  
   //null test
   //   it ('should return null when receiving an empty object')
 
   //new tests above this line  
 });
-
-//get all test
 
