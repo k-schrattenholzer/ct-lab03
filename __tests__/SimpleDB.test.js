@@ -1,4 +1,4 @@
-const { mkdir, rm } = require('fs/promises');
+const { mkdir, rm, readdir } = require('fs/promises');
 const SimpleDB = require('../lib/SimpleDB.js');
 
 describe('SimpleDB', () => {
@@ -8,13 +8,25 @@ describe('SimpleDB', () => {
   beforeEach(() => {
     return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
   });
-
-  it ('creates and saves an object', () => {
+  //save test
+  it ('creates and saves an object in the root Dir', () => {
     const DB = new SimpleDB(rootDir);
-    const object = 'silly lil string';
+    const object = { message: 'silly lil string', from: 'who knows' };
+
+    const dirContents = readdir(rootDir);
 
     return DB
       .save(object)
-      .then((object) => expect(object).toEqual(object));
+      .then(() => expect(dirContents).toBeTruthy());
   });
 });
+
+//save and get test
+
+//null test
+
+//get all test
+
+//delete test
+
+//update test
