@@ -10,7 +10,7 @@ describe('SimpleDB', () => {
   };
 
   beforeEach(clearDir);
-  afterEach(clearDir);
+//   afterEach(clearDir);
 
   //save test
   it ('creates and save, and get an object in the root Dir', () => {
@@ -31,7 +31,7 @@ describe('SimpleDB', () => {
       .then(() => DB.get(object.id))
       .then(actual => expect(actual).toEqual(expected));
   });
-
+  //gets all test
   it ('gets all saved objects', () => {
     const newDB = new SimpleDB(rootDir);
 
@@ -52,9 +52,11 @@ describe('SimpleDB', () => {
       .then(actual => expect(actual).toEqual(expect.arrayContaining([object1, object2])));
 
   });
-});
+  //null test
+  //   it ('should return null when receiving an empty object')
 
-//null test
+  //new tests above this line  
+});
 
 //get all test
 
