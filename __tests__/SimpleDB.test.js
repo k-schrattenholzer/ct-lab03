@@ -12,6 +12,7 @@ describe('SimpleDB', () => {
   beforeEach(() => {
     return rm(rootDir, { force: true, recursive: true }).then(() => mkdir(rootDir, { recursive: true }));
   });
+  //   beforeEach(clearDir);
   //   afterEach(clearDir);
 
   //save test
