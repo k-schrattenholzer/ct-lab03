@@ -47,6 +47,3 @@ describe('SimpleDB', () => {
 
 //get all test
 
-//delete test
-
-//update test
